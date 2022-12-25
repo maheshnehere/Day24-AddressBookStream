@@ -2,7 +2,6 @@ package com.day9_address_book;
 import java.util.Scanner;
 
 public class AddressBook {
-    static int size;
     String f_name; //first name
     String l_name; //last name
     String address;
@@ -40,11 +39,5 @@ public class AddressBook {
         for(int i = 0; i < contacts.length; i++) {
             System.out.println(contacts[i]);
         }
-    }
-    public static void main(String[] args) {
-        System.out.println("Welcome to day 9 address book program");
-        AddressBook ab = new AddressBook();
-        ab.book();
-        ab.display();
     }
 }
