@@ -79,8 +79,16 @@ public class Main {
         else
             System.out.println("Oops! can't find the name");
     }
+    public void uc4_deleteContact() {
+        if(contacts.get(0).getF_name().equalsIgnoreCase(searchByName)) {
+            contacts.remove(0);
+            System.out.println("Deleted successfully"+contacts.size());
+        }
+        else
+            System.out.println("Oops! can't find the name");
+    }
     public void menu() {
-        System.out.println("Menu: (Enter the respective number)\n1. Add contact 2. Edit contact 3. Display");
+        System.out.println("Menu: (Enter the respective number)\n1. Add contact 2. Edit contact 3. Delete 4. Display 5.Exit");
         option = sc.nextInt();
         switch(option) {
             case 1:
@@ -95,8 +103,22 @@ public class Main {
                 addressBook.menu();
                 break;
             case 3:
-                System.out.println(contacts.get(0));
+                System.out.println("Enter the first name to search and edit contact with first name");
+                searchByName = sc.next();
+                addressBook.uc4_deleteContact();
                 addressBook.menu();
+            case 4:
+                if(contacts.size() > 0) {
+                    System.out.println(contacts.get(0));
+                    addressBook.menu();
+                }
+                else {
+                    System.out.println("Contact list in the addressbook is empty");
+                    addressBook.menu();
+                }
+                break;
+            case 5:
+                System.exit(0);
             default:
                 System.out.println("Invalid option");
         }
