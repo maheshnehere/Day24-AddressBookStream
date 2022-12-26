@@ -1,6 +1,7 @@
 package com.day9_address_book;
 
 public class Contacts {
+    //practicing oops concept encapuslation here
     private String f_name; //first name
     private String l_name; //last name
     private String address;
