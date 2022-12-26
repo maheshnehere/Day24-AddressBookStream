@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
-    int contactID;
     Contact[] contacts = new Contact[1]; //initially only adding single contact
     Scanner sc = new Scanner(System.in);
     public Contact uc1_CreatingContact() {
@@ -29,7 +28,7 @@ public class Main {
         return contact;
     }
     public void uc2_addingContact(Contact contact) {
-        contacts[contactID++] = contact;
+        contacts[0] = contact;
         System.out.println("Contact has been added");
     }
     public void display() {
