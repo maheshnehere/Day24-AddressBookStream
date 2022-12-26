@@ -1,10 +1,13 @@
 package com.day9_address_book;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
+    int contactID;
+    Contact[] contacts = new Contact[1]; //initially only adding single contact
     Scanner sc = new Scanner(System.in);
-    public void uc1_CreatingContact() {
+    public Contact uc1_CreatingContact() {
         System.out.println("Enter the contact details");
         System.out.println("Enter the first name");
         String f_name = sc.next();
@@ -23,12 +26,21 @@ public class Main {
         System.out.println("Enter the email address");
         String email = sc.next();
         Contact contact = new Contact(f_name, l_name, address, city, state, zip, ph_no, email);
-        System.out.println(contact);
+        return contact;
+    }
+    public void uc2_addingContact(Contact contact) {
+        contacts[contactID++] = contact;
+        System.out.println("Contact has been added");
+    }
+    public void display() {
+        System.out.println(Arrays.toString(contacts));
     }
 
     public static void main(String[] args) {
         System.out.println("Welcome to day 9 address book program");
-        Main addresBook = new Main();
-        addresBook.uc1_CreatingContact();
+        Main addressBook = new Main();
+        Contact contact = addressBook.uc1_CreatingContact();
+        addressBook.uc2_addingContact(contact);
+        addressBook.display();
     }
 }
