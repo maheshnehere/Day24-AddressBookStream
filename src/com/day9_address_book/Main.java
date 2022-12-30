@@ -8,6 +8,7 @@ public class Main {
     String searchByName;
     static int option;
     static Contacts contact;
+    int count = 1;
     static ArrayList <Contacts> contacts = new ArrayList<Contacts>(); //using Arraylist as it is easier than using Array
     public void uc1_CreatingContact() {
         Scanner sc = new Scanner(System.in);
@@ -29,9 +30,10 @@ public class Main {
         System.out.println("Enter the email address");
         String email = sc.next();
         System.out.println("Contact created");
-        contact = new Contacts(f_name,l_name,address,city,state,zip,ph_no,email);
+        contact = new Contacts(count, f_name,l_name,address,city,state,zip,ph_no,email);
     }
     public void uc2_addingContacts() {
+        count++;
         contacts.add(contact);
     }
     public void uc3_editContacts() {

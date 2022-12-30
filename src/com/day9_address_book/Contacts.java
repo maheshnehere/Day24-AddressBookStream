@@ -2,6 +2,7 @@ package com.day9_address_book;
 
 public class Contacts {
     //practicing oops concept encapuslation here
+    private int count;
     private String f_name; //first name
     private String l_name; //last name
     private String address;
@@ -77,7 +78,8 @@ public class Contacts {
     public void setCity(String city) {
         this.city = city;
     }
-    public Contacts(String f_name,String l_name,String address,String city,String state,String zip,String ph_no,String email) {
+    public Contacts(int count, String f_name,String l_name,String address,String city,String state,String zip,String ph_no,String email) {
+        this.count = count;
         this.f_name = f_name;
         this.l_name = l_name;
         this.address = address;
@@ -88,9 +90,17 @@ public class Contacts {
         this.email = email;
     }
     public String toString() {
-        return "\nFirst name: "+f_name+"\nLast name: "+l_name
+        return "\nS.no: "+count+"\nFirst name: "+f_name+"\nLast name: "+l_name
                 +"\nAddress: "+address+"\nCity: "+city
                 +"\nState: "+state+"\nZip: "+zip
                 +"\nPhone number: "+ph_no+"\nEmail address: "+email;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
     }
 }
