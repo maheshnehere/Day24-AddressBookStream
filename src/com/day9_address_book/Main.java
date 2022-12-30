@@ -43,35 +43,35 @@ public class Main {
                 switch (option2) {
                     case 1:
                         System.out.println("Enter the first name to be edited");
-                        contacts.get(0).setF_name(sc.next());
+                        contacts.get(i).setF_name(sc.next());
                         break;
                     case 2:
                         System.out.println("Enter the last name to be edited");
-                        contacts.get(0).setL_name(sc.next());
+                        contacts.get(i).setL_name(sc.next());
                         break;
                     case 3:
                         System.out.println("Enter the address to be edited");
-                        contacts.get(0).setAddress(sc.next());
+                        contacts.get(i).setAddress(sc.next());
                         break;
                     case 4:
                         System.out.println("Enter the city name to be edited");
-                        contacts.get(0).setCity(sc.next());
+                        contacts.get(i).setCity(sc.next());
                         break;
                     case 5:
                         System.out.println("Enter the state name to be edited");
-                        contacts.get(0).setState(sc.next());
+                        contacts.get(i).setState(sc.next());
                         break;
                     case 6:
                         System.out.println("Enter the zip code to be edited");
-                        contacts.get(0).setZip(sc.next());
+                        contacts.get(i).setZip(sc.next());
                         break;
                     case 7:
                         System.out.println("Enter the phone number to be edited");
-                        contacts.get(0).setPh_no(sc.next());
+                        contacts.get(i).setPh_no(sc.next());
                         break;
                     case 8:
                         System.out.println("Enter the email address to be edited");
-                        contacts.get(0).setEmail(sc.next());
+                        contacts.get(i).setEmail(sc.next());
                         break;
                     default:
                         System.out.println("Invalid option");
