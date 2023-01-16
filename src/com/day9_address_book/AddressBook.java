@@ -9,6 +9,8 @@ public class AddressBook {
     int count = 1;
     static ArrayList<Contacts> contacts = new ArrayList<Contacts>(); //using collection as per the requirement of uc7
     static List<Contacts> duplicateCheckedcontacts;
+    static List<Contacts> searchByCity;
+    static List<Contacts> searchByState;
     public void uc1_CreatingContact() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the contact details");
@@ -103,5 +105,13 @@ public class AddressBook {
                 System.out.println("Deleted successfully"+contacts.size());
             }
         }
+    }
+    public void uc8_searchByCity(String citySearch) {
+        searchByCity = contacts.stream().filter(x -> x.getCity().equalsIgnoreCase(citySearch)).collect(Collectors.toList());
+        searchByCity.forEach(x -> System.out.println(x));
+    }
+    public void uc8_searchByState(String stateSearch) {
+        searchByState = contacts.stream().filter(x -> x.getState().equalsIgnoreCase(stateSearch)).collect(Collectors.toList());
+        searchByState.forEach(x -> System.out.println(x));
     }
 }
