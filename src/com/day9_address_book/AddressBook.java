@@ -11,6 +11,8 @@ public class AddressBook {
     static List<Contacts> duplicateCheckedcontacts;
     static List<Contacts> searchByCity;
     static List<Contacts> searchByState;
+    static HashMap<String, List<Contacts>> dictionaryCity = new HashMap<>(); //uc 9 dictionary
+    static HashMap<String, List<Contacts>> dictionaryState = new HashMap<>();
     public void uc1_CreatingContact() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the contact details");
@@ -106,13 +108,23 @@ public class AddressBook {
             }
         }
     }
-    public void uc8_searchByCity(String citySearch) {
+    public List<Contacts> uc8_searchByCity(String citySearch) {
         searchByCity = contacts.stream().filter(x -> x.getCity().equalsIgnoreCase(citySearch)).collect(Collectors.toList());
-        searchByCity.forEach(x -> System.out.println(x));
+        return searchByCity;
     }
-    public void uc8_searchByState(String stateSearch) {
+    public List<Contacts> uc8_searchByState(String stateSearch) {
         searchByState = contacts.stream().filter(x -> x.getState().equalsIgnoreCase(stateSearch)).collect(Collectors.toList());
-        searchByState.forEach(x -> System.out.println(x));
+        return searchByState;
+    }
+    public void uc9_dictionaryOfPersonByCity(String cityPerson) {
+        List<Contacts> cityList = uc8_searchByCity(cityPerson); //calling uc8city list and storing in a list
+        dictionaryCity.put(cityPerson, cityList); //adding city name as key and list as value
+        dictionaryCity.get(cityPerson).forEach(x -> System.out.println(x));
+    }
+    public void uc9_dictionaryOfPersonByState(String statePerson) {
+        List<Contacts> cityList = uc8_searchByCity(statePerson);
+        dictionaryState.put(statePerson, cityList);
+        dictionaryState.get(statePerson).forEach(x -> System.out.println(x));
     }
     public void uc10_CountByCity(String citySearch) {
         long count1 = contacts.stream().filter(x -> x.getCity().equalsIgnoreCase(citySearch)).count();

@@ -7,7 +7,7 @@ public class Main extends AddressBook{
     public static void menu() {
         Main addressBook = new Main();
         Scanner sc = new Scanner(System.in);
-        System.out.println("Menu: (Enter the respective number)\n1. Add contact 2. Edit contact 3. Delete 4. Display 5. Search by City or State 6. Count of person in city or state 7. Exit");
+        System.out.println("Menu: (Enter the respective number)\n1. Add contact 2. Edit contact 3. Delete 4. Display 5. Search by City or State 6. Count of person in city or state 7. Dictionary of person by city and state 8. Exit");
         option = sc.nextInt();
         switch(option) {
             case 1:
@@ -46,12 +46,12 @@ public class Main extends AddressBook{
                 if(option2 == 1) {
                     System.out.println("Enter the city name to search");
                     String citySearch = sc.next();
-                    addressBook.uc8_searchByCity(citySearch);
+                    addressBook.uc8_searchByCity(citySearch).forEach(x -> System.out.println(x));
                 }
                 else if(option2 == 2) {
                     System.out.println("Enter the state name to search");
                     String stateSearch = sc.next();
-                    addressBook.uc8_searchByState(stateSearch);
+                    addressBook.uc8_searchByState(stateSearch).forEach(x -> System.out.println(x));
                 }
                 menu();
                 break;
@@ -71,6 +71,21 @@ public class Main extends AddressBook{
                 menu();
                 break;
             case 7:
+                System.out.println("1. dictionary of city and it's persons 2. dictionary of state and it's persons");
+                int option4 = sc.nextInt();
+                if(option4 == 1) {
+                    System.out.println("Enter the city name");
+                    String cityPerson = sc.next();
+                    addressBook.uc9_dictionaryOfPersonByCity(cityPerson);
+                }
+                else if(option4 == 2) {
+                    System.out.println("Enter the state name");
+                    String StatePerson = sc.next();
+                    addressBook.uc9_dictionaryOfPersonByState(StatePerson);
+                }
+                menu();
+                break;
+            case 8:
                 System.exit(0);
             default:
                 System.out.println("Invalid option");
