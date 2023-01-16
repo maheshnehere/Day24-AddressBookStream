@@ -32,16 +32,18 @@ public class AddressBook {
         contact = new Contacts(count, f_name,l_name,address,city,state,zip,ph_no,email);
     }
     public void uc2_addingContacts() {
+        //this is for initial adding we have to make sure the list is not empty
         if(contacts.isEmpty()) {
             count++;
             contacts.add(contact);
         }
-        else {
+        else {//used streams to collect the duplicates alone in a separate list
             duplicateCheckedcontacts = contacts.stream().filter(x -> (x.getF_name()+x.getL_name()).equalsIgnoreCase(contact.getF_name()+contact.getL_name())).collect(Collectors.toList());
+            //if the duplicate list has items in the contacts list sys out that there duplicate
             if(contacts.equals(duplicateCheckedcontacts)) {
                 System.out.println("Found a duplicate contact " + contact.getF_name()+" "+contact.getL_name() + " Already exists S.no " + contact.getCount());
             }
-
+            //else ther is no duplicate it will get added
              else {
                 count++;
                 contacts.add(contact);
