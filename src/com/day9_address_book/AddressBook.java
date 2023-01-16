@@ -114,4 +114,12 @@ public class AddressBook {
         searchByState = contacts.stream().filter(x -> x.getState().equalsIgnoreCase(stateSearch)).collect(Collectors.toList());
         searchByState.forEach(x -> System.out.println(x));
     }
+    public void uc10_CountByCity(String citySearch) {
+        long count1 = contacts.stream().filter(x -> x.getCity().equalsIgnoreCase(citySearch)).count();
+        System.out.println(count1+" of persons in "+citySearch);
+    }
+    public void uc10_countByState(String stateSearch) {
+            long count1 = contacts.stream().filter(x -> x.getCity().equalsIgnoreCase(stateSearch)).count();
+            System.out.println(count1+" of persons in "+stateSearch);
+    }
 }
