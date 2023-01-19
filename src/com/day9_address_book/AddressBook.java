@@ -7,7 +7,7 @@ public class AddressBook {
     String searchByName;
     static Contacts contact;
     int count = 1;
-    static ArrayList<Contacts> contacts = new ArrayList<Contacts>(); //using collection as per the requirement of uc7
+    static List<Contacts> contacts = new ArrayList<Contacts>(); //using collection as per the requirement of uc7
     static List<Contacts> duplicateCheckedcontacts;
     static List<Contacts> searchByCity;
     static List<Contacts> searchByState;
@@ -133,5 +133,8 @@ public class AddressBook {
     public void uc10_countByState(String stateSearch) {
             long count1 = contacts.stream().filter(x -> x.getCity().equalsIgnoreCase(stateSearch)).count();
             System.out.println(count1+" of persons in "+stateSearch);
+    }
+    public void uc11_sortByName() {
+        contacts = contacts.stream().sorted(Comparator.comparing(Contacts::getF_name)).collect(Collectors.toList());
     }
 }
