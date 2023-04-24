@@ -1,5 +1,5 @@
 package com.day9_address_book;
-import java.util.*; 
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class AddressBook {
@@ -95,6 +95,7 @@ public class AddressBook {
                         break;
                     default:
                         System.out.println("Invalid option");
+
                 }
             }
         }

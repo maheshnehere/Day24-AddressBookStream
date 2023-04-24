@@ -82,18 +82,30 @@ public class Main extends AddressBook{
                     String StatePerson = sc.next();
                     addressBook.uc9_dictionaryOfPersonByState(StatePerson);
                 }
+            case 9:
+                try (FileWriter fileWriter = new FileWriter("C:\\Users\\Sourav Prasanna\\IdeaProjects\\Day28-AddressBook-IO\\src\\com\\day9_address_book\\AddressBook.txt")) {
+                    for(Contacts values: contacts ) {
+                        fileWriter.write(values.toString());
+                    }
+                }
                 menu();
                 break;
-            case 8:
-                addressBook.uc11_sortByName();
+            case 10:
+                File file = new File("C:\\Users\\Sourav Prasanna\\IdeaProjects\\Day28-AddressBook-IO\\src\\com\\day9_address_book\\AddressBook.txt");
+                BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+                String values;
+                while ((values = bufferedReader.readLine()) != null) {
+                    System.out.println(values);
+                }
+                menu();
                 break;
-            case 9:
+            case 11:
                 System.exit(0);
             default:
                 System.out.println("Invalid option");
         }
     }
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         System.out.println("Welcome to day 9 address book program");
         Main.menu();
     }
