@@ -137,13 +137,4 @@ public class AddressBook {
     public void uc11_sortByName() {
         contacts = contacts.stream().sorted(Comparator.comparing(Contacts::getF_name)).collect(Collectors.toList());
     }
-    public void uc12_sortByCity() {
-        contacts = contacts.stream().sorted(Comparator.comparing(Contacts::getCity)).collect(Collectors.toList());
-    }
-    public void uc12_sortByState() {
-        contacts = contacts.stream().sorted(Comparator.comparing(Contacts::getState)).collect(Collectors.toList());
-    }
-    public void uc12_sortByZip() {
-            contacts = contacts.stream().sorted(Comparator.comparing(Contacts::getZip)).collect(Collectors.toList());
-    }
 }
