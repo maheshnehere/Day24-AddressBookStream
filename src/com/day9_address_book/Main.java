@@ -6,7 +6,7 @@ public class Main extends AddressBook{
     public static void menu() {
         Main addressBook = new Main();
         Scanner sc = new Scanner(System.in);
-        System.out.println("Menu: (Enter the respective number)\n1. Add contact 2. Edit contact 3. Delete 4. Display 5. Search by City or State 6. Count of person in city or state 7. Dictionary of person by city and state 8. Sort by 9. Exit");
+        System.out.println("Menu: (Enter the respective number)\n1. Add contact 2. Edit contact 3. Delete 4. Display 5. Search by City or State 6. Count of person in city or state 7. Dictionary of person by city and state 8. Sort by name 9. Exit");
         option = sc.nextInt();
         switch(option) {
             case 1:
@@ -82,32 +82,30 @@ public class Main extends AddressBook{
                     String StatePerson = sc.next();
                     addressBook.uc9_dictionaryOfPersonByState(StatePerson);
                 }
+            case 9:
+                try (FileWriter fileWriter = new FileWriter("C:\\Users\\Sourav Prasanna\\IdeaProjects\\Day28-AddressBook-IO\\src\\com\\day9_address_book\\AddressBook.txt")) {
+                    for(Contacts values: contacts ) {
+                        fileWriter.write(values.toString());
+                    }
+                }
                 menu();
                 break;
-            case 8:
-                System.out.println("1. Sort by name 2. Sort by city 3. Sort by state 4. Sort by zip");
-                int option5 = sc.nextInt();
-                if(option5 == 1)
-                    addressBook.uc11_sortByName();
-                else if (option5 == 2) {
-                    addressBook.uc12_sortByCity();
+            case 10:
+                File file = new File("C:\\Users\\Sourav Prasanna\\IdeaProjects\\Day28-AddressBook-IO\\src\\com\\day9_address_book\\AddressBook.txt");
+                BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+                String values;
+                while ((values = bufferedReader.readLine()) != null) {
+                    System.out.println(values);
                 }
-                else if (option5 == 3) {
-                    addressBook.uc12_sortByState();
-                }
-                else if (option5 == 4) {
-                    addressBook.uc12_sortByZip();
-                }
-                else
-                    System.out.println("Invalid option");
+                menu();
                 break;
-            case 9:
+            case 11:
                 System.exit(0);
             default:
                 System.out.println("Invalid option");
         }
     }
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         System.out.println("Welcome to day 9 address book program");
         Main.menu();
     }

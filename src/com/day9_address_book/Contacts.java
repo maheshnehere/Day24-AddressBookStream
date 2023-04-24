@@ -97,6 +97,7 @@ public class Contacts {
                 +"\nPhone number: "+ph_no+"\nEmail address: "+email;
     }
 
+    //Read and write
     public int getCount() {
         return count;
     }
