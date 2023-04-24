@@ -1,5 +1,4 @@
 package com.day9_address_book;
-
 import java.util.Scanner;
 
 public class Main extends AddressBook{
