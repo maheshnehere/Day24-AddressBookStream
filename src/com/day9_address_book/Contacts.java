@@ -1,5 +1,6 @@
 package com.day9_address_book;
 
+
 public class Contacts {
     //practicing oops concept encapuslation here
     private int count;
